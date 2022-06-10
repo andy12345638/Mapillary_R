@@ -13,7 +13,7 @@
 	
 * install exiftool on linux https://exiftool.org/
 ```
-sudo apt install exiftool
+sudo apt install exiftool libimage-exiftool-perl
 ```
 or you can download it on web.
 
