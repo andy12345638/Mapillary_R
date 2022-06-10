@@ -15,12 +15,12 @@ files=list.files(pattern = ".MP4")
 
 ## 擷取GPS資料
 dataframe_tmp <- data.frame(video_file = character(),
-                            no = integer(),
-                            date = character(),
-                            lat = character(),
-                            lon = character(),
-                            track = character(),
-                            stringsAsFactors = FALSE)
+                 no = integer(),
+                 date = character(),
+                 lat = character(),
+                 lon = character(),
+                 track = character(),
+                 stringsAsFactors = FALSE)
 
 
 dataframe_all <- data.frame(video_file = character(),
