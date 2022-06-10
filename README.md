@@ -26,4 +26,6 @@ or you can download it on web.
 5. now you have a folder called __pic__. and all video with cut in to jpg picture by one secound.
 6. (optional) if the gps track didn't seem good, alternate it on qgis and save as new ___data.csv___
 7. write data.csv data into jpg exif. excute __Mapillary_R_process.r__ line 120 to end
-8. start uploading jpgs to Mapillary by using Mapillary desktop software.
+8. start uploading jpgs to Mapillary by using  [Mapillary desktop software](https://www.mapillary.com/desktop-uploader).
+
+
