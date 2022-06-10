@@ -63,7 +63,7 @@ str(dataframe_all)
 }
 
 ### 輸出 GPS資料
-write.csv(dataframe_all,"data",row.names = F)
+#write.csv(dataframe_all,"data",row.names = F)
 
 
 ## 各別影片擷取出JPG檔
@@ -90,6 +90,12 @@ dataframe_all=dataframe_all[-dim(dataframe_all)[1],]
 
 ### 輸出 GPS+照片資料
 write.csv(dataframe_all,"data.csv",row.names = F)
+
+
+
+
+
+
 
 
 
