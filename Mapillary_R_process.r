@@ -1,12 +1,13 @@
 # 自動化處理行車記錄器影片
-
 rm(list=ls())
+
 ## 載入套件
 #library(stringr)
 options(digits = 12)
 
 ## 移動到工作資料夾
 setwd("/home/fisher/Dropbox/9.admin/job2021/18景翊科技/2專案資料/智慧城鄉/dashcam/自動化處理行車記錄器至mapillary/test2/")
+
 ## 列出影片數量
 files=list.files(pattern = ".MP4")
 
@@ -111,4 +112,42 @@ write.csv(dataframe_all,"data.csv",row.names = F)
 #確認偏移時間後應該要重跑一次這個程式
 
 
-# 假設QGIS對位成功，時間也沒有偏移，就讀進來
+# 假設QGIS對位成功，時間也沒有偏移，重新輸出成csv檔案，記得要更新他的x,y值，就讀進來
+options(digits = 12)
+setwd("/home/fisher/Dropbox/9.admin/job2021/18景翊科技/2專案資料/智慧城鄉/dashcam/自動化處理行車記錄器至mapillary/test2/")
+
+exif_data=read.csv("path",header = T,stringsAsFactors = F)
+
+#exif_data=read.csv("/home/fisher/Dropbox/9.admin/job2021/18景翊科技/2專案資料/智慧城鄉/dashcam/自動化處理行車記錄器至mapillary/test2/data.csv",header = T,stringsAsFactors = F)
+
+
+#exif_data$x=exif_data$lon
+#exif_data$y=exif_data$lat
+
+str(exif_data)
+
+files=list.files("pic/",pattern = ".jpg")
+
+#exiftool -overwrite_original  -exif:DateTimeOriginal='2022:05:2413:41:06' -exif:gpslatitude="25.0757972222222" -exif:gpslatituderef=N -exif:gpslongitude="121.573780555556" -exif:gpslongituderef=E -exif:GPSTrack=207.32 20220524_0002.jpg 
+
+i=100
+
+
+for( i in 1:length(files)){
+  cmd=paste("exiftool -overwrite_original -exif:DateTimeOriginal='",
+            exif_data$date[i],
+            "' -exif:gpslatitude='",exif_data$y[i],"' -exif:gpslatituderef=N -exif:gpslongitude='",exif_data$x[i],
+            "' -exif:gpslongituderef=E -exif:GPSTrack='",exif_data$track[i],"' pic/",files[i],sep="")
+  cmd
+  system(cmd)
+  
+}
+
+
+# 完成後就可以打開Mapillary程式進行上傳
+
+
+
+
+
+
